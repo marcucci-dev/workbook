@@ -1,14 +1,20 @@
-def precedence(operator):
-    if operator == '+' or operator == '-':
+def precedence(op):
+    if op == '+' or op == '-':
         return 1
-    elif operator == '*' or operator == '/':
+    elif op == '*' or op == '/':
         return 2
-    elif operator == '^':
+    elif op == '^':
         return 3
     else:
         return -1
 
+
 if __name__ == '__main__':
+    operator = '^'
+    res = precedence(operator)
+    print(res)
+    assert res == 3
+
     while True:
         operator = input('Write an operator: ')
         res = precedence(operator)
@@ -16,7 +22,3 @@ if __name__ == '__main__':
             print('Error: the input is not an operator')
         else:
             print('The precedence of operator is', res)
-
-    operator = '^'
-    res = precedence(operator)
-    print(res)
