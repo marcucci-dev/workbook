@@ -1,6 +1,5 @@
 def tokenize(exp):
     token_list = []
-    i = 0
     number = ''
     last = len(exp) - 1
     for i in range(len(exp)):
@@ -17,12 +16,14 @@ def tokenize(exp):
         i += 1
     return token_list
 
+
 if __name__ == '__main__':
+    expr = "  123 + ( -1 +(34*2^6)/89)"
+    res = tokenize(expr)
+    print(res)
+    assert res == ['123', '+', '(', '-', '1', '+', '(', '34', '*', '2', '^', '6', ')', '/', '89', ')']
+
     while True:
         expression = input('Write an expression: ')
         res = tokenize(expression)
         print('The token list is', res)
-
-    operator = '^'
-    res = precedence(operator)
-    print(res)
