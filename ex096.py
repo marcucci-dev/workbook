@@ -2,6 +2,8 @@ def isinteger(word):
     w = word.strip()
     if w[0] in "+-":
         w = w[1:]
+    if len(w) == 0:
+        return False
     for char in w:
         if char not in "0123456789":
             return False
@@ -23,3 +25,8 @@ if __name__ == '__main__':
     res = isinteger(number)
     print(res)
     assert res
+
+    number = ' + '
+    res = isinteger(number)
+    print(res)
+    assert not res
